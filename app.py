@@ -20,7 +20,6 @@
   from flask import Flask, request, jsonify
   from functools import wraps
                                                                                 
-  import requests as req_lib
                                                                                 
   app = Flask(__name__)                                     
 
@@ -265,6 +264,7 @@
   IP.                                                                           
       Returns: { status, text, url }                        
       """
+      import requests as req_lib 
       data = request.get_json(silent=True)
       if not data or not data.get("url"):
           return jsonify({"error": "Missing 'url'"}), 400                       
