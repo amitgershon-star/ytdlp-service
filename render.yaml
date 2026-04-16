@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ytdlp-service
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: API_KEY
+        generateValue: true
+      - key: PORT
+        value: "10000"
+    healthCheckPath: /health
